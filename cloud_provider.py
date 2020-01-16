@@ -27,12 +27,12 @@ class DigitalOceanCloudProvider(CloudProvider):
     def run(self, config) -> dict:
         self.setup(config)
         print(f'Hello {self.manager.get_account()}!')
-        # droplets = []
-        # self.resolve_ssh_keys()
-        # self.resolve_instance_names()
-        # for instance_def in self.config["instances"]:
-        #     self.droplets.append(self.create_droplet(instance_def))
-        # self.wait_droplet_creation_process(self.droplets)
+        droplets = []
+        self.resolve_ssh_keys()
+        self.resolve_instance_names()
+        for instance_def in self.config["instances"]:
+            self.droplets.append(self.create_droplet(instance_def))
+        self.wait_droplet_creation_process(self.droplets)
         ips = {}
         # for droplet in self.droplets:
         for droplet in self.manager.get_all_droplets():

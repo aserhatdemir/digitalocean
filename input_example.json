@@ -1,0 +1,48 @@
+{
+  "instances": [
+    {
+      "name": "node1",
+      "region": "Frankfurt",
+      "size": "s-1vcpu-1gb",
+      "tags": [
+        "worker"
+      ],
+      "ssh_keys": [
+        "mac_test"
+      ]
+    },
+    {
+      "name": "node2",
+      "region": "Frankfurt",
+      "size": "s-1vcpu-1gb",
+      "tags": [
+        "worker"
+      ],
+      "ssh_keys": [
+        "mac_test"
+      ]
+    }
+  ],
+  "settings": {
+    "api_token": "<DIGITALOCEAN API TOKEN>"
+  },
+  "keys": [
+    {
+      "name": "mac_test",
+      "private_key": "/Users/serhat/.ssh/id_rsa_test",
+      "public_key": "/Users/serhat/.ssh/id_rsa_test.pub"
+    }
+  ],
+  "scripts": [
+    {
+      "name": "script1",
+      "file": "/Users/serhat/PycharmProjects/digitalocean/test.sh"
+    }
+  ],
+  "setup": [
+    {
+      "nodes": ["node1", "node2"],
+      "scripts": ["script1"]
+    }
+  ]
+}
