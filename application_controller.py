@@ -12,6 +12,7 @@ class ApplicationController:
 
     def run(self):
         config = self.input_adapter.read()
+        print(config)
         ips = self.cloud_provider.run(config)
         self.shell_executor.run(config, ips)
 

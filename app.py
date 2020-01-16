@@ -5,7 +5,7 @@ import json
 
 
 def do_play(token):
-    # do = DigitalOcean(token)
+    do = DigitalOcean(token)
     # ----
     # for i in range(3):
     #     do.create_droplet(f'node-{i}', 'fra1', 'do-python')
@@ -16,6 +16,9 @@ def do_play(token):
     drops = do.manager.get_all_droplets(tag_name='do-python')
     for drop in drops:
         print(drop.status)
+    keys = do.manager.get_all_sshkeys()
+    for key in keys:
+        print(key.public_key)
 
 
 def parse_input(file):
@@ -27,6 +30,7 @@ def parse_input(file):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-file')
+    parser.add_argument('-token')
     args = parser.parse_args()
-    parse_input(args.file)
+    # parse_input(args.file)
+    do_play(args.token)
