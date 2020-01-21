@@ -10,6 +10,9 @@ Git clone the repository. Python 3.7
 
 ```bash
 git clone https://github.com/aserhatdemir/digitalocean.git
+
+cd digitalocean
+pip install -r requirements.txt
 ```
 
 ## Usage
